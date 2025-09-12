@@ -5,6 +5,8 @@
 # Description: This script downloads all secondary assemblies for human chromosome 1
 # from UCSC, unzips them, and creates a summary file with file info and first 10 lines.
 
+# Make sure to run in a Bash-compatible shell (macOS/Linux/Git Bash/WSL)
+
 # 1. Navigate to home directory
 cd ~
 
