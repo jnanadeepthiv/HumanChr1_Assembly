@@ -1,5 +1,5 @@
 #!/bin/bash
-# Informatics_573.sh
+# Informatics_573
 # Author: Jnana Deepthi Vishnumolakala
 # Date: 13th September 2025
 # Description: This script downloads all secondary assemblies for human chromosome 1
@@ -25,7 +25,7 @@ done
 # 5. Create an empty data_summary.txt file
 touch data_summary.txt
 
-# 6. Append detailed information (file name, size, permissions) to summary
+# 6. Append detailed information (file name, size, permissions) to summary file
 ls -lh >> data_summary.txt
 
 # 7. Append the first 10 lines of each chromosome 1 assembly
