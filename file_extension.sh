@@ -1,11 +1,14 @@
 #!/bin/bash
-# Informatics_573
+# NOTE: The above line (shebang) is essential. It tells the system to run this script using Bash.
+# Informatics_573 file will be created at the end with the results.
 # Author: Jnana Deepthi Vishnumolakala
 # Date: 13th September 2025
 # Description: This script downloads all secondary assemblies for human chromosome 1
 # from UCSC, unzips them, and creates a summary file with file info and first 10 lines.
+#  Note: This script must be run in a Bash-compatible shell (macOS/Linux/Git Bash/WSL).
 
-# Make sure to run in a Bash-compatible shell (macOS/Linux/Git Bash/WSL)
+
+
 
 # 1. Navigate to home directory
 cd ~
@@ -14,10 +17,10 @@ cd ~
 mkdir -p Informatics_573
 cd Informatics_573
 
-# 3. Download all secondary assemblies except chr1.fa.gz
+# 3. Download all secondary assemblies for human chromosome 1 from University of California, Santa Cruz (UCSC) Genome browser  (except chr1.fa.gz)
 wget --timestamping ftp://hgdownload.cse.ucsc.edu/goldenPath/hg38/chromosomes/chr1_*.fa.gz
 
-# 4. Unzip all downloaded files
+# 4. Unzip all downloaded files using for loop
 for file in *.fa.gz; do
     gunzip -k "$file"  # -k keeps the original gz file
 done
@@ -25,10 +28,11 @@ done
 # 5. Create an empty data_summary.txt file
 touch data_summary.txt
 
-# 6. Append detailed information (file name, size, permissions) to summary file
+# 6. Append detailed information (file name, size, permissions) to summary
 ls -lh >> data_summary.txt
 
 # 7. Append the first 10 lines of each chromosome 1 assembly
+# Works on Bash-compatible systems (macOS/Linux/Git Bash/WSL).
 for file in *.fa; do
     echo "----- First 10 lines of $file -----" >> data_summary.txt
     head -n 10 "$file" >> data_summary.txt
@@ -41,4 +45,3 @@ for file in *.fa; do
 done
 
 echo "Script completed. data_summary.txt created in $(pwd)"
-
